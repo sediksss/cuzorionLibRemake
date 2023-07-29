@@ -1,3 +1,4 @@
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -44,7 +45,7 @@ local function GetIcon(IconName)
 	end
 end   
 
-local Orion = Instance.new("EXPHub")
+local Orion = Instance.new("ScreenGui")
 Orion.Name = "Orion"
 if syn then
 	syn.protect_gui(Orion)
@@ -469,14 +470,14 @@ function OrionLib:MakeWindow(WindowConfig)
 	local UIHidden = false
 
 	WindowConfig = WindowConfig or {}
-	WindowConfig.Name = WindowConfig.Name or "Fat"
+	WindowConfig.Name = WindowConfig.Name or "Orion Library"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
 	WindowConfig.HidePremium = WindowConfig.HidePremium or false
 	if WindowConfig.IntroEnabled == nil then
 		WindowConfig.IntroEnabled = true
 	end
-	WindowConfig.IntroText = WindowConfig.IntroText or "Fat mom"
+	WindowConfig.IntroText = "Expensive Hub"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
@@ -650,7 +651,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		UIHidden = true
 		OrionLib:MakeNotification({
 			Name = "Interface Hidden",
-			Content = "Tap Delete to reopen the interface",
+			Content = "Tap Delete Key to reopen the interface",
 			Time = 5
 		})
 		WindowConfig.CloseCallback()
@@ -658,10 +659,10 @@ function OrionLib:MakeWindow(WindowConfig)
 
 	AddConnection(UserInputService.InputBegan, function(Input)
 		if Input.KeyCode == Enum.KeyCode.Delete and UIHidden then
-			if MainWindow.Visible = true then
+			if MainWindow.Visible == true then
                 MainWindow.Visible = false
             end
-            if MainWindow.Visible = false then
+            if MainWindow.Visible == false then
                 MainWindow.Visible = true
             end
 		end
